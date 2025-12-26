@@ -27,9 +27,16 @@ declare global {
       storage: ConfigItem<StorageProviderConfig>;
       scenarios: ConfigItem<CopilotPromptScenario>;
       providers: {
-        openai: ConfigItem<OpenAIConfig>;
+        openai: {
+          apiKey: ConfigItem<string>;
+          baseURL: ConfigItem<string>;
+          oldApiStyle: ConfigItem<boolean>;
+        };
         fal: ConfigItem<FalConfig>;
-        gemini: ConfigItem<GeminiGenerativeConfig>;
+        gemini: {
+          apiKey: ConfigItem<string>;
+          baseURL: ConfigItem<string>;
+        };
         geminiVertex: ConfigItem<GeminiVertexConfig>;
         perplexity: ConfigItem<PerplexityConfig>;
         anthropic: ConfigItem<AnthropicOfficialConfig>;
@@ -63,13 +70,20 @@ defineModuleConfig('copilot', {
       },
     },
   },
-  'providers.openai': {
-    desc: 'The config for the openai provider.',
-    default: {
-      apiKey: '',
-      baseURL: 'https://api.openai.com/v1',
-    },
-    link: 'https://github.com/openai/openai-node',
+  'providers.openai.apiKey': {
+    desc: 'The api key for the openai provider.',
+    default: '',
+    env: 'AFFINE_COPILOT_OPENAI_API_KEY',
+  },
+  'providers.openai.baseURL': {
+    desc: 'The base url for the openai provider.',
+    default: 'https://api.openai.com/v1',
+    env: 'AFFINE_COPILOT_OPENAI_BASE_URL',
+  },
+  'providers.openai.oldApiStyle': {
+    desc: 'Whether to use the old api style for the openai provider.',
+    default: false,
+    env: 'AFFINE_COPILOT_OPENAI_OLD_API_STYLE',
   },
   'providers.fal': {
     desc: 'The config for the fal provider.',
@@ -77,12 +91,14 @@ defineModuleConfig('copilot', {
       apiKey: '',
     },
   },
-  'providers.gemini': {
-    desc: 'The config for the gemini provider.',
-    default: {
-      apiKey: '',
-      baseURL: 'https://generativelanguage.googleapis.com/v1beta',
-    },
+  'providers.gemini.apiKey': {
+    desc: 'The api key for the gemini provider.',
+    default: '',
+    env: 'AFFINE_COPILOT_GEMINI_API_KEY',
+  },
+  'providers.gemini.baseURL': {
+    desc: 'The base url for the gemini provider.',
+    default: 'https://generativelanguage.googleapis.com/v1beta',
   },
   'providers.geminiVertex': {
     desc: 'The config for the gemini provider in Google Vertex AI.',

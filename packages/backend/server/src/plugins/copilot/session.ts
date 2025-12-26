@@ -454,10 +454,12 @@ export class ChatSessionService {
   }
 
   async checkQuota(userId: string) {
-    const { limit, used } = await this.getQuota(userId);
-    if (limit && Number.isFinite(limit) && used >= limit) {
-      throw new CopilotQuotaExceeded();
-    }
+    // Quota check removed
+    return;
+    // const { limit, used } = await this.getQuota(userId);
+    // if (limit && Number.isFinite(limit) && used >= limit) {
+    //   throw new CopilotQuotaExceeded();
+    // }
   }
 
   async create(options: ChatSessionOptions): Promise<string> {

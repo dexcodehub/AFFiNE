@@ -21,9 +21,9 @@ declare global {
       unsplash: ConfigItem<{
         key: string;
       }>;
-      exa: ConfigItem<{
-        key: string;
-      }>;
+      exa: {
+        key: ConfigItem<string>;
+      };
       storage: ConfigItem<StorageProviderConfig>;
       scenarios: ConfigItem<CopilotPromptScenario>;
       providers: {
@@ -133,11 +133,10 @@ defineModuleConfig('copilot', {
       key: '',
     },
   },
-  exa: {
+  'exa.key': {
     desc: 'The config for the exa web search key.',
-    default: {
-      key: '',
-    },
+    default: '',
+    env: 'AFFINE_COPILOT_EXA_API_KEY',
   },
   storage: {
     desc: 'The config for the storage provider.',

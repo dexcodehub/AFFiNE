@@ -101,12 +101,12 @@ export const FeatureConfigs: {
     configs: {
       // quota name
       name: 'Free',
-      blobLimit: 10 * OneMB,
+      blobLimit: 100 * OneMB,
       businessBlobLimit: 100 * OneMB,
-      storageQuota: 10 * OneGB,
-      historyPeriod: 7 * OneDay,
-      memberLimit: 3,
-      copilotActionLimit: 10,
+      storageQuota: 100000 * OneGB,
+      historyPeriod: 36500 * OneDay,
+      memberLimit: 100000,
+      copilotActionLimit: 100000,
     },
   },
   pro_plan_v1: {
@@ -115,10 +115,10 @@ export const FeatureConfigs: {
     configs: {
       name: 'Pro',
       blobLimit: 100 * OneMB,
-      storageQuota: 100 * OneGB,
-      historyPeriod: 30 * OneDay,
-      memberLimit: 10,
-      copilotActionLimit: 10,
+      storageQuota: 100000 * OneGB,
+      historyPeriod: 36500 * OneDay,
+      memberLimit: 100000,
+      copilotActionLimit: 100000,
     },
   },
   lifetime_pro_plan_v1: {
@@ -127,10 +127,10 @@ export const FeatureConfigs: {
     configs: {
       name: 'Lifetime Pro',
       blobLimit: 100 * OneMB,
-      storageQuota: 1024 * OneGB,
-      historyPeriod: 30 * OneDay,
-      memberLimit: 10,
-      copilotActionLimit: 10,
+      storageQuota: 100000 * OneGB,
+      historyPeriod: 36500 * OneDay,
+      memberLimit: 100000,
+      copilotActionLimit: 100000,
     },
   },
   team_plan_v1: {
@@ -138,11 +138,11 @@ export const FeatureConfigs: {
     deprecatedVersion: 1,
     configs: {
       name: 'Team Workspace',
-      blobLimit: 500 * OneMB,
-      storageQuota: 100 * OneGB,
-      seatQuota: 20 * OneGB,
-      historyPeriod: 30 * OneDay,
-      memberLimit: 1,
+      blobLimit: 100 * OneMB,
+      storageQuota: 100000 * OneGB,
+      seatQuota: 100000 * OneGB,
+      historyPeriod: 36500 * OneDay,
+      memberLimit: 100000,
     },
   },
   early_access: {
